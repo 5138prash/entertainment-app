@@ -17,7 +17,7 @@ const port = process.env.PORT || 5000;  // Set port, use the value from .env or 
 
 // Configure CORS middleware
 const corsOptions = {
-  origin: process.env.CLIENT_URL || "http://localhost:3000",  // Allow requests from your frontend URL
+  origin: "https://frontend-entertainment.onrender.com",  // Allow requests from your frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"],  // Allowed HTTP methods
   credentials: true,  // Allow cookies to be sent
 };
