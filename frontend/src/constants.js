@@ -2,7 +2,7 @@
 export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
 // Base URL for your API, typically for backend requests (currently empty for your setup)
-export const BASE_URL = "";
+export const BASE_URL = "https://entertainment-app-jswn.onrender.com/";
 
 // Endpoint for home-related data (e.g., home page details)
 export const HOME_URL = '/api/home';
