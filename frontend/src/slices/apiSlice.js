@@ -4,8 +4,16 @@ import { BASE_URL } from '../constants'; // Import the base URL from constants
 // Base query function that uses fetchBaseQuery with the provided BASE_URL and credentials
 const baseQuery = fetchBaseQuery({
     baseUrl: BASE_URL,
-    credentials: 'include', // Include credentials (cookies, authentication headers, etc.) in the requests
+    credentials: 'include', // For cookies
+    prepareHeaders: (headers, { getState }) => {
+        const token = localStorage.getItem('jwt'); // or getState() for Redux store
+        if (token) {
+            headers.set('Authorization', `Bearer ${token}`);
+        }
+        return headers;
+    },
 });
+
 
 // Create an API slice using Redux Toolkit's createApi method
 export const apiSlice = createApi({
