@@ -12,7 +12,7 @@ const generateToken = (res, userId) => {
         httpOnly: true,  // Ensure the cookie is only accessible via HTTP requests (not accessible by JavaScript)
         secure: process.env.NODE_ENV === "production",  // Use secure cookies in production (HTTPS)
         sameSite: "strict",  // Prevent cross-site request forgery (CSRF) attacks
-        maxAge:30 * 24 * 60 * 60 * 1000,, // Set the cookie's expiration time to 1 day in milliseconds
+        maxAge:30 * 24 * 60 * 60 * 1000, // Set the cookie's expiration time to 1 day in milliseconds
     });
 };
 
