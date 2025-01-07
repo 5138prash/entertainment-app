@@ -8,11 +8,22 @@ const homeRoutes = require("./routes/home.routes.js");  // Import home route
 const userRoutes = require("./routes/user.routes.js");  // Import user routes
 const bookmarkRoutes = require("./routes/bookmark.routes.js");  // Import bookmark routes
 const cookieParser = require("cookie-parser");  // Import cookie parser to parse cookies in requests
+const cors = require("cors");  // Import cors middleware
 
 dotenv.config();  // Load environment variables from .env file
 const app = express();  // Initialize an Express app
 
 const port = process.env.PORT || 5000;  // Set port, use the value from .env or default to 5000
+
+// Configure CORS middleware
+const corsOptions = {
+  origin: process.env.CLIENT_URL || "http://localhost:3000",  // Allow requests from your frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],  // Allowed HTTP methods
+  credentials: true,  // Allow cookies to be sent
+};
+
+// Use CORS middleware
+app.use(cors(corsOptions));
 
 // Middleware to parse JSON bodies in incoming requests
 app.use(express.json());
