@@ -5,13 +5,6 @@ import { BASE_URL } from '../constants'; // Import the base URL from constants
 const baseQuery = fetchBaseQuery({
     baseUrl: BASE_URL,
     credentials: 'include', // For cookies
-    prepareHeaders: (headers, { getState }) => {
-        const token = localStorage.getItem('jwt'); // or getState() for Redux store
-        if (token) {
-            headers.set('Authorization', `Bearer ${token}`);
-        }
-        return headers;
-    },
 });
 
 
