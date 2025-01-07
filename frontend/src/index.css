@@ -1,0 +1,40 @@
+/* Import Tailwind's base styles */
+@tailwind base;
+/* Import Tailwind's component styles */
+@tailwind components;
+/* Import Tailwind's utility styles */
+@tailwind utilities;
+
+/* Custom scroll container styling */
+.scroll-container {
+  /* Enables horizontal scrolling */
+  overflow-x: auto;
+  /* Prevents text from wrapping and forces it to stay in one line */
+  white-space: nowrap;
+}
+
+/* Custom scrollbar styles for WebKit browsers (e.g., Chrome, Safari) */
+.scroll-container::-webkit-scrollbar {
+  /* Sets the height of the scrollbar */
+  height: 8px;
+}
+
+/* Custom scrollbar track styling (the area the thumb slides in) */
+.scroll-container::-webkit-scrollbar-track {
+  /* Sets the background color of the track */
+  background: #161d2f; /* Dark track color */
+}
+
+/* Custom scrollbar thumb styling (the draggable part) */
+.scroll-container::-webkit-scrollbar-thumb {
+  /* Sets the background color of the thumb */
+  background: #888; /* Grey thumb color */
+  /* Applies rounded corners to the thumb */
+  border-radius: 8px;
+}
+
+/* Custom thumb styling when hovered */
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  /* Changes the thumb color on hover */
+  background: #555; /* Darker thumb color when hovered */
+}
