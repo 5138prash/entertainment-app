@@ -38,7 +38,15 @@ const authUser = async (req, res) => {
 // @access  Public
 const logoutUser = async (req, res) => {
   try {
-    // Clear the JWT cookie by setting it to an empty string and setting an expired date
+    // Check if the JWT cookie exists
+    const token = req.cookies.jwt;
+
+    if (!token) {
+      // If no token is found, respond with a "not logged in" message
+      return res.status(400).json({ message: "User is not logged in" });
+    }
+
+    // Clear the JWT cookie by setting it to an empty string and an expired date
     res.cookie("jwt", "", {
       httpOnly: true,
       expires: new Date(0),
@@ -51,6 +59,7 @@ const logoutUser = async (req, res) => {
     res.status(500).json({ message: "Failed to logout" });
   }
 };
+
 
 // @desc    Register a new user
 // @route   POST /api/users
