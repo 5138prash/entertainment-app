@@ -76,7 +76,7 @@ User authentication is handled using JWT (JSON Web Tokens). Passwords are secure
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/entertainment-app.git
+    git clone https://github.com/5138prash/entertainment-app.git
     cd entertainment-app
     ```
 
