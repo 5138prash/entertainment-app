@@ -40,15 +40,18 @@ app.use("/api/bookmarks", bookmarkRoutes);
 
 // Production environment setup
 if (process.env.NODE_ENV === 'production') {
-  const __dirname = path.resolve();  // Resolve current directory path
-  app.use('/uploads', express.static('/var/data/uploads'));  // Serve static files from the uploads directory in production
-  app.use(express.static(path.join(__dirname, '/frontend/build')));  // Serve static files from the frontend build folder
+  const __dirname = path.resolve();  // /opt/render/project/src
 
-  // Fallback route for handling all other routes (Single Page Application)
+  app.use('/uploads', express.static('/var/data/uploads'));
+  
+  // Corrected path to frontend/build
+  app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+
   app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'))
   );
-} else {
+}
+ else {
   const __dirname = path.resolve();  // Resolve current directory path
   app.use('/uploads', express.static(path.join(__dirname, '/uploads')));  // Serve static files from the uploads directory in development
   app.get('/', (req, res) => {
