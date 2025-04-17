@@ -2,6 +2,8 @@
 
 Welcome to Entertainment Hub, your ultimate destination to explore Movies, TV Series, and manage your favorite content through bookmarks.
 
+![Wallpaer](TMDB-Api.png)
+
 ## ✨ Features
 
 - **Home Page**: Discover trending Movies and TV Series effortlessly.
